@@ -25,12 +25,19 @@ Route::get('/home', function() {
     ]);
 });
 
-
-Route::get('/gig/{id}', function($id) {
+// this uses eloquent route binding model
+// what this does is that it return 404 when the id in the route doesnt exists
+Route::get('/gigs/{gig}', function(Gig $gig) {
     return view('gig', [
-        'gig' => Gig::find($id)
+        'gig' => $gig
     ]);
 });
+
+// Route::get('/gig/{id}', function($id) {
+//     return view('gig', [
+//         'gig' => Gig::find($id)
+//     ]);
+// });
 
 
 // Route::get('/hello', function() {
